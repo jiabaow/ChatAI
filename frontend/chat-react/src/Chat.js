@@ -2,6 +2,7 @@ import React, {useEffect, useRef, useState} from "react";
 import { TextField, Button, Container, Box, Paper, Typography, styled } from "@mui/material";
 
 const ChatContainer = styled(Paper)(({ theme }) => ({
+    marginTop: theme.spacing(3),
     display: 'flex',
     flexDirection: 'colum',
     height: '90vh',
@@ -26,6 +27,7 @@ const ChatMessage = styled(Paper)(({ theme, role }) => ({
     maxWidth: '70%',
     background: role === 'user' ? '#e1ffc7' : '#f1f1f1',
     alignSelf: role === 'user' ? 'flex-end' : 'flex-start',
+    boxShadow: theme.shadows[1],
 }));
 
 const ChatForm = styled('form')(({ theme }) => ({
@@ -113,11 +115,11 @@ function Chat({ token }) {
                         onChange={(e) => setMessage(e.target.value)}
                         fullWidth
                         variant="outlined"
-                        margin="normal"
+                        margin="none"
                         sx={{ flexGrow: 1 }}
                     />
 
-                    <Button type="submit" variant="contained" color="primary">Send</Button>
+                    <Button type="submit" variant="contained" color="primary" sx={{ ml: 2 }}>Send</Button>
                 </ChatForm>
             </ChatContainer>
         </Container>

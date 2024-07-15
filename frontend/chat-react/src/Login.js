@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { TextField, Button, Container } from "@mui/material";
+import {TextField, Button, Container, Box} from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 function Login({ setToken }) {
@@ -22,21 +22,42 @@ function Login({ setToken }) {
     };
 
     return (
-        <Container>
-            <form onSubmit={handleSubmit}>
+        <Container
+            sx={{
+                height: '100vh',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+            }}
+        >
+            <Box
+                component="form"
+                onSubmit={handleSubmit}
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 2, // Space between elements
+                    width: '100%',
+                    maxWidth: 400,
+                }}
+            >
                 <TextField
                     label="Username"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
+                    fullWidth
                 />
                 <TextField
-                    type='password'
+                    type="password"
                     label="Password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                    fullWidth
                 />
-                <Button type="submit">Login</Button>
-            </form>
+                <Button type="submit" variant="contained" color="primary">
+                    Login
+                </Button>
+            </Box>
         </Container>
     )
 }
