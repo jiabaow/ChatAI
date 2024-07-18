@@ -11,7 +11,7 @@ function Login({ setToken }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("http://127.0.0.1:8000/api/auth/login/", { username, password});
+            const response = await axios.post("http://127.0.0.1:8000/login/", { username, password});
             setToken(response.data.token);
             navigate("/chat");
             console.log("navigate to chat page")

@@ -1,6 +1,7 @@
 import os
 
 from django.http import StreamingHttpResponse
+from django.shortcuts import render
 from rest_framework import generics, permissions
 from rest_framework.response import Response
 from knox.models import AuthToken
@@ -63,3 +64,7 @@ class ChatAPI(generics.GenericAPIView):
             return Response({"error": "Rate limit exceeded. Please try again later."}, status=429)
         except Exception as e:
             return Response({"error": f"An unexpected error occurred: {str(e)}"}, status=500)
+
+
+def IndexView(request):
+    return render(request, 'index.html')
