@@ -49,7 +49,7 @@ function Chat({ token }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const apiUrl = "http://127.0.0.1:8000/api/chat/";
+        const apiUrl = "/api/chat/";
         const headers = {
             'Authorization': `Token ${token}`,
             'Content-Type': 'application/json'
